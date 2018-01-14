@@ -1,3 +1,9 @@
+# Custom
+notes.txt
+package-lock.json
+config.js
+beaConfig.json
+
 # Logs
 logs
 *.log

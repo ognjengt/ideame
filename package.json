@@ -1,0 +1,24 @@
+{
+  "name": "ideame",
+  "version": "1.0.0",
+  "description": "Slack slash command for generating programming ideas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ognjengt/ideame.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ognjengt/ideame/issues"
+  },
+  "homepage": "https://github.com/ognjengt/ideame#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  }
+}
