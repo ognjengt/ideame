@@ -2,8 +2,7 @@ var express     = require('express');
 var bodyParser  = require('body-parser');
 var app         = express();
 
-
-var ideaController = require('./controllers/ideaController');
+var ideaController = require('./controllers/ideasController');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
