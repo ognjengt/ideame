@@ -4,7 +4,17 @@ var router = express.Router();
 
 // post /api/ideas/random
 router.post('/random/',(req,res) => {
-  res.send('Now i will generate a random idea');
+  var payload = {
+    "text": "New idea",
+    "attachments": [
+        {
+            "color": "#2ecc71",
+            "title": "Super idea",
+            "text": "To see more about this idea check out this link..."
+        }
+    ]
+}
+  res.send(payload);
 });
 
 // post /api/ideas/javascript
