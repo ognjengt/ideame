@@ -4,6 +4,7 @@ var router = express.Router();
 
 // post /api/ideas/random
 router.post('/random/',(req,res) => {
+  console.log(req.body)
   var payload = {
     "text": "New idea",
     "attachments": [
