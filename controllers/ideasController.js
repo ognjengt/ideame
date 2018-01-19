@@ -13,12 +13,13 @@ router.post('/random',(req,res) => {
     fetcher.getRandomIdea()
     .then((ideas) => {
       var idea = ideas[Math.floor(Math.random()*ideas.length)];
+      var tryImplementing = "Try implementing this using " + idea.language == 'all' ? "any language" : idea.language;
       payload = {
         "attachments": [
           {
-              "color": "#2ecc71",
+              "color": "#444",
               "title": idea.title,
-              "text": idea.description
+              "text": idea.description + "\n" + tryImplementing
           }
         ]
       }
