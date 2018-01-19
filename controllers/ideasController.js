@@ -6,14 +6,15 @@ var fetcher = require('../fetcher')
 // post /api/ideas/random
 // salje se /ideame js, znaci /ideame [language] ili samo /ideame
 router.post('/random',(req,res) => {
-  var language = req.body.text;
+  var tech = req.body.text;
   var payload = {};
 
-  if (!language) {
+  if (!tech) {
     fetcher.getRandomIdea()
     .then((ideas) => {
       var idea = ideas[Math.floor(Math.random()*ideas.length)];
-      var tryImplementing = "Try implementing this using " + idea.language == 'all' ? "any language" : idea.language;
+      var techImplementing = idea._doc.tech == 'all' ? "any technology or language" : idea._doc.tech;
+      var tryImplementing = "Try implementing this using: "+ techImplementing;
       payload = {
         "attachments": [
           {
@@ -28,7 +29,7 @@ router.post('/random',(req,res) => {
   }
 
   else {
-    fetcher.getLanguageIdea(language)
+    fetcher.getTechIdea(tech)
     .then((idea) => {
       payload = {
         "attachments": [

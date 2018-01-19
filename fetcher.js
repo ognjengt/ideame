@@ -6,14 +6,14 @@ mongoose.connect(config.mlab)
 var fetcher = {}
 
 fetcher.getRandomIdea = () => {
-  return Idea.find({ language: 'all'}, function(err,docs) {
+  return Idea.find({}, function(err,docs) {
     return docs
   })
 }
 
 
-fetcher.getLanguageIdea = (language) => {
-  return Idea.find({ language: language}, function(err,doc) {
+fetcher.getTechIdea = (tech) => {
+  return Idea.find({tech : {$regex : ".*"+tech+".*"}}, function(err,doc) {
     return doc
   })
 }
