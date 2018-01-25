@@ -3,6 +3,7 @@ notes.txt
 package-lock.json
 config.js
 beaConfig.json
+.vscode
 
 # Logs
 logs
