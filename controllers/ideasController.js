@@ -29,14 +29,24 @@ router.post('/random',(req,res) => {
   }
   // new command /ideame publish-to-appchallenge "App name" "App description"
   else if(tech.includes('publish-to-appchallenge')) {
-    var idea = {
-      title: 'Test',
-      description: 'Test desc, livestream sudodeploy'
+    var trimmed = tech.split('publish-to-appchallenge ');
+    trimmed = trimmed[1].split('"');
+
+    var idea = {  
+      title: trimmed[1],
+      description: trimmed[3]
     };
     fetcher.addAppChallengeIdea(idea)
            .then((result) => {
-             if(result) res.send('Idea added to appchallenge!')
-             else console.log('Something went wrong!')
+             payload = {
+               text: 'Project successfully posted to appchallenge projects. :tada:'
+             }
+             if(result) res.send(payload)
+             else {
+               payload.text = 'Something went wrong, please enter the message in the correct format!';
+               res.send(payload);
+             }
+             
            })
   }
 
